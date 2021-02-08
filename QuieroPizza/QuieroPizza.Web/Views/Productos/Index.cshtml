@@ -1,8 +1,10 @@
-﻿@model QuieroPizza.Web.Models.ProductoModel
+﻿@model List<QuieroPizza.Web.Models.ProductoModel>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Productos</h2>
-<p>@Model.descripcion</p>
-
+@foreach(var Producto in Model)
+{
+    <p>@Producto.id @Producto.descripcion</p>
+}
