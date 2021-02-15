@@ -8,8 +8,17 @@ namespace QuieroPizza.BL
 {
     public class ProductoBL
     {
+        Contexto _contexto;
+     
+
+        public ProductoBL()
+        {
+            _contexto = new Contexto();
+
+        }
         public List<Producto> ObtenerProductos()
         {
+            _contexto.Productos.ToList();
 
             var Producto1 = new Producto();
             Producto1.Id = 1;
