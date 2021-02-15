@@ -24,7 +24,7 @@ namespace QuieroPizza.BL
             var Producto3 = new Producto();
             Producto3.Precio = 180;
             Producto3.Id = 3;
-            Producto3.Descripcion = "Pizza Jamon y queso";
+            Producto3.Descripcion = "Pizza Jamon y queso ";
 
             var listadeProducto = new List<Producto>();
             listadeProducto.Add(Producto1);

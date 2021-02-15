@@ -6,21 +6,33 @@
 <h2>Productos</h2>
 
 
-<table>
+<table class="table table-bordered table-hover" > 
+    <thead>
+        <tr>
+            <th>
+               CODIGO
+            </th>
+            <th>
+               DESCRIPCION
+            </th>
+            <th>
+                PRECIO
+            </th>
+        </tr>
+    </thead>
+    @foreach (var producto in Model)
+    {
     <tr>
         <td>
-           1
+           @producto.Id
         </td>
         <td>
-            Pizza1
+           @producto.Descripcion
         </td>
+        <td>
+           @producto.Precio
+        </td>
+        
     </tr>
-    <tr>
-        <td>
-            2
-        </td>
-        <td>
-            Pizza2
-        </td>
-    </tr>
+    }
 </table>
