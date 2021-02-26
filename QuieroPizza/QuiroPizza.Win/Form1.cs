@@ -16,16 +16,13 @@ namespace QuiroPizza.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var productosBL = new ProductoBL();
             var listadeProductos = productosBL.ObtenerProductos();
-            foreach(var producto in listadeProductos)
-            {
-                MessageBox.Show(producto.Descripcion);
-            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
