@@ -18,9 +18,21 @@ namespace QuiroPizza.Win
             InitializeComponent();
             var productosBL = new ProductoBL();
             var listadeProductos = productosBL.ObtenerProductos();
+
+            listadeProductosBindingSource.DataSource = listadeProductos;
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listadeProductosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void listadeProductosBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }
