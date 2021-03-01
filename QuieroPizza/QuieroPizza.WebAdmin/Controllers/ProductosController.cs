@@ -10,11 +10,13 @@ namespace QuieroPizza.WebAdmin.Controllers
     public class ProductosController : Controller
     {
         ProductoBL _productosBL;
+        CategoriasBL _categoriasBL;
        
 
         public ProductosController()
         {
             _productosBL = new ProductoBL();
+            _categoriasBL = new CategoriasBL();
         }
         // GET: Productos
         public ActionResult Index()
@@ -24,9 +26,16 @@ namespace QuieroPizza.WebAdmin.Controllers
 
         }
 
-        public ActionResult Crear() 
+        public ActionResult Crear()
         {
             var nuevoProducto = new Producto();
+            var nuevacategoria = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.listadeCategorias = new SelectList(nuevacategoria, "Id", "Descripcion");
+
+
+
+
             return View(nuevoProducto);
         }
         [HttpPost]
@@ -44,6 +53,11 @@ namespace QuieroPizza.WebAdmin.Controllers
         public ActionResult Editar(Producto producto)
         {
             _productosBL.GuardarProducto(producto);
+            var nuevacategoria = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.listadeCategorias = new SelectList(nuevacategoria, "Id", "Descripcion",producto.categoriaId);
+
+
             return RedirectToAction("Index");
         }
         public ActionResult Detalle(int id)

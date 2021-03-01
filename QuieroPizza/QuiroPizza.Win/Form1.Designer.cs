@@ -234,8 +234,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
+        
         private System.Windows.Forms.BindingSource listadeProductosBindingSource;
         private System.Windows.Forms.BindingNavigator listadeProductosBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;

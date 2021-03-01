@@ -19,7 +19,9 @@ namespace QuieroPizza.BL
         }
         public List<Producto> ObtenerProductos()
         {
-            listadeProductos= _contexto.Productos.ToList();
+            listadeProductos= _contexto.Productos
+            .Include("Categoria")
+            .ToList();
             return listadeProductos;
         }
         public void GuardarProducto(Producto producto)
@@ -35,7 +37,11 @@ namespace QuieroPizza.BL
                 productoexistente.Precio = producto.Precio;
             }
             _contexto.SaveChanges();
+          
         }
+
+           
+     
 
         public  Producto ObtenerProductos (int id)
         {
