@@ -10,17 +10,18 @@ namespace QuieroPizza.BL
 {
     public class Contexto : DbContext
     {
-        public Contexto() : base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" + 
-            Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ @"\QuieroPizzaDB.mdf")
-        { 
+        public Contexto() : base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" +
+            Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\QuieroPizzaDB.mdf")
+        {
 
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-         
+
         }
         public DbSet<Producto> Productos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
         public static string Evironment { get; private set; }
     }
 }
