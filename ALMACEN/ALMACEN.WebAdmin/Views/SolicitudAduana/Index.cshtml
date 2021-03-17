@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Almacen.BL.SolicitudAduana>
+
+@{
+    ViewBag.Title = "Solicitud de Aduana";
+}
+
+<h2>Solicitud de Aduana</h2>
+
+<p>
+    @Html.ActionLink("Nueva Solicitud", "Crear")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detalle", "Detalle", new { id = item.Id }) |
+                @Html.ActionLink("Ver Servicios", "Index", "DetalleSolicitud", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>

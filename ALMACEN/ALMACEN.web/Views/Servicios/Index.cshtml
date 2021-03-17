@@ -1,0 +1,34 @@
+﻿@model List<Almacen.BL.Servicio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contamos con los siguientes servicios</h2>
+
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                COD
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Precio
+            </th>
+        </tr>
+    </thead>
+    @foreach (var servicio in Model)
+    {
+        <tr>
+            <td>@servicio.Id</td>
+            <td>@servicio.Descripcion</td>
+            <td>@servicio.Precio</td>
+        </tr>
+    }
+    
+</table>
